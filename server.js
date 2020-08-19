@@ -25,8 +25,13 @@ const fruitsController = require('./controllers/fruits.js');
 app.use('/fruits', fruitsController); //Route -- points to fruitsController
 
 const vegetablesController = require("./controllers/vegetables.js");
+const router = require('./controllers/fruits.js');
 app.use("/vegetables", vegetablesController); //Route -- points to vegetablesController
 
+//DEFAULT ROUTE
+app.get('/', (req, res)=>{
+    res.redirect("/fruits");
+})
 
 // listen
 app.listen(PORT, () => {
